@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>マヤ暦 診断</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
+  <style>h
   *{box-sizing:border-box;margin:0;padding:0}
 body{background:#faf7f2;font-family:'Noto Sans JP',sans-serif;min-height:100vh;padding:2.5rem 1.5rem 4rem}
 .inner{max-width:460px;margin:0 auto}
@@ -34,7 +34,7 @@ body{background:#faf7f2;font-family:'Noto Sans JP',sans-serif;min-height:100vh;p
   <p class="sub-title">生年月日から導く、あなたの本質<em>（太陽の紋章）</em></p>
   <div class="rule"></div>
   <label class="field-label" for="dob">生年月日を入力してください</label>
-  <input class="date-input" type="date" id="dob">
+  <input class="date-input" type="date" id="dob" min="1900-01-01" max="2099-12-31">
   <button class="btn" onclick="diagnose()">今すぐ診断する</button>
   <div class="result" id="result">
   <div class="result-rule"></div>
