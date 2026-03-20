@@ -1,79 +1,75 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>マヤ暦 診断</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{background:#faf7f2;font-family:'Noto Sans JP',sans-serif;min-height:100vh;padding:2.5rem 1.5rem 4rem}
-    .inner{max-width:460px;margin:0 auto}
-    .badge{display:inline-block;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.3em;color:#8a6a3a;border:.5px solid #c8a96a;padding:4px 14px;border-radius:1px;margin-bottom:1rem}
-    .main-title{font-family:'Cinzel',serif;font-size:30px;font-weight:600;color:#1a1610;letter-spacing:.05em;margin-bottom:.4rem}
-    .sub-title{font-size:13px;font-weight:300;color:#7a6a50;line-height:1.7;margin-bottom:.3rem}
-    .sub-title em{font-style:normal;color:#5a4a2a;font-weight:400}
-    .rule{height:1px;background:linear-gradient(to right,#c8a96a,transparent);margin:1.4rem 0 1.8rem}
-    .field-label{font-size:12px;font-weight:500;color:#3a3020;display:block;margin-bottom:8px}
-    .date-row{display:flex;gap:8px;margin-bottom:1rem;align-items:center}
-    .date-row input{background:#fff;border:1.5px solid #d4c4a4;border-radius:4px;color:#1a1610;font-size:17px;padding:12px 10px;outline:none;text-align:center;-moz-appearance:textfield}
-    .date-row input::-webkit-outer-spin-button,.date-row input::-webkit-inner-spin-button{-webkit-appearance:none}
-    .date-row input:focus{border-color:#c8a96a}
-    .input-year{width:110px}
-    .input-month{width:70px}
-    .input-day{width:70px}
-    .date-sep{color:#9a8060;font-size:16px}
-    .btn{width:100%;background:#2a1f0e;border:none;border-radius:4px;color:#f0e6cc;font-family:'Cinzel',serif;font-size:14px;font-weight:600;letter-spacing:.2em;padding:16px;cursor:pointer}
-    .btn:hover{background:#3d2e14}
-    .result{display:none;margin-top:2rem;text-align:center}
-    .result-rule{height:1px;background:#e0d4b8;margin-bottom:1.8rem}
-    .result-label{font-size:13px;color:#9a8060;margin-bottom:.8rem}
-    .result-seal{font-size:28px;font-weight:500;color:#1a1610;letter-spacing:.05em}
-    .result-seal em{font-style:normal;color:#8a6a3a;font-size:32px}
-    </style>
-  </head>
-  <body>
-    <div class="inner">
-      <div class="badge">Maya Sacred Calendar</div>div>
-      <h1 class="main-title">マヤ暦 診断</h1>h1>
-      <p class="sub-title">生年月日から導く、あなたの本質<em>（太陽の紋章）</em></p>p>
-    <div class="rule"></div>div>
-    <label class="field-label">生年月日を入力してください</label>label>
-    <div class="date-row">
-    <input class="input-year" type="number" id="y" placeholder="西暦" min="1900" max="2099" maxlength="4">
-    <span class="date-sep">年</span>span>
-    <input class="input-month" type="number" id="m" placeholder="月" min="1" max="12">
-    <span class="date-sep">月</span>span>
-    <input class="input-day" type="number" id="d" placeholder="日" min="1" max="31">
-    <span class="date-sep">日</span>span>
-    </div>div>
-    <button class="btn" onclick="diagnose()">今すぐ診断する</button>button>
-    <div class="result" id="result">
-    <div class="result-rule"></div>div>
-    <p class="result-label">あなたの太陽の紋章</p>p>
-    <p class="result-seal">あなたは<em id="seal-name"></em>です。</p>p>
-    </div>div>
-    </div>div>
-  <script>
-    var S=["赤い竜","白い風","青い夜","黄色い種","赤い蛇","白い世界の橋渡し","青い手","黄色い星","赤い月","白い犬","青い猿","黄色い人間","赤い空歩く人","白い魔法使い","青い鷲","黄色い戦士","赤い地球","白い鏡","青い嵐","黄色い太陽"];
-    document.getElementById('y').addEventListener('input',function(){if(this.value.length>4)this.value=this.value.slice(0,4);});
-    function diagnose(){
-      var y=parseInt(document.getElementById('y').value);
-      var m=parseInt(document.getElementById('m').value);
-      var d=parseInt(document.getElementById('d').value);
-      if(!y||!m||!d){alert('年・月・日をすべて入力してください');return;}
-      if(String(y).length!==4){alert('西暦は4桁で入力してください');return;}
-      var b=new Date(1994,6,26),t=new Date(y,m-1,d);
-      var diff=Math.round((t-b)/86400000);
-      var kin=((diff%260)+260)%260||260;
-      document.getElementById('seal-name').textContent='【'+S[(kin-1)%20]+'】';
-      var r=document.getElementById('result');
-      r.style.display='block';
-    }
-  </script>
-  </body>
-</html>html>
-  </script></em>
-  </body>
-  </style></title>
-  </head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>マヤ暦 診断</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#faf7f2;font-family:'Noto Sans JP',sans-serif;min-height:100vh;padding:2.5rem 1.5rem 4rem}
+.inner{max-width:460px;margin:0 auto}
+.badge{display:inline-block;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.3em;color:#8a6a3a;border:.5px solid #c8a96a;padding:4px 14px;border-radius:1px;margin-bottom:1rem}
+.main-title{font-family:'Cinzel',serif;font-size:30px;font-weight:600;color:#1a1610;letter-spacing:.05em;margin-bottom:.4rem}
+.sub-title{font-size:13px;font-weight:300;color:#7a6a50;line-height:1.7;margin-bottom:.3rem}
+.sub-title em{font-style:normal;color:#5a4a2a;font-weight:400}
+.rule{height:1px;background:linear-gradient(to right,#c8a96a,transparent);margin:1.4rem 0 1.8rem}
+.field-label{font-size:12px;font-weight:500;color:#3a3020;display:block;margin-bottom:8px}
+.date-row{display:flex;gap:8px;margin-bottom:1rem;align-items:center}
+.date-row input{background:#fff;border:1.5px solid #d4c4a4;border-radius:4px;color:#1a1610;font-size:17px;padding:12px 10px;outline:none;text-align:center;-moz-appearance:textfield}
+.date-row input::-webkit-outer-spin-button,.date-row input::-webkit-inner-spin-button{-webkit-appearance:none}
+.date-row input:focus{border-color:#c8a96a}
+.input-year{width:110px}
+.input-month{width:70px}
+.input-day{width:70px}
+.date-sep{color:#9a8060;font-size:16px}
+.btn{width:100%;background:#2a1f0e;border:none;border-radius:4px;color:#f0e6cc;font-family:'Cinzel',serif;font-size:14px;font-weight:600;letter-spacing:.2em;padding:16px;cursor:pointer}
+.btn:hover{background:#3d2e14}
+.result{display:none;margin-top:2rem;text-align:center}
+.result-rule{height:1px;background:#e0d4b8;margin-bottom:1.8rem}
+.result-label{font-size:13px;color:#9a8060;margin-bottom:.8rem}
+.result-seal{font-size:28px;font-weight:500;color:#1a1610;letter-spacing:.05em}
+.result-seal em{font-style:normal;color:#8a6a3a;font-size:32px}
+</style>
+</head>
+<body>
+<div class="inner">
+<div class="badge">Maya Sacred Calendar</div>
+<h1 class="main-title">マヤ暦 診断</h1>
+<p class="sub-title">生年月日から導く、あなたの本質<em>（太陽の紋章）</em></p>
+<div class="rule"></div>
+<label class="field-label">生年月日を入力してください</label>
+<div class="date-row">
+<input class="input-year" type="number" id="y" placeholder="西暦" min="1900" max="2099">
+<span class="date-sep">年</span>
+<input class="input-month" type="number" id="m" placeholder="月" min="1" max="12">
+<span class="date-sep">月</span>
+<input class="input-day" type="number" id="d" placeholder="日" min="1" max="31">
+<span class="date-sep">日</span>
+</div>
+<button class="btn" onclick="diagnose()">今すぐ診断する</button>
+<div class="result" id="result">
+<div class="result-rule"></div>
+<p class="result-label">あなたの太陽の紋章</p>
+<p class="result-seal">あなたは<em id="seal-name"></em>です。</p>
+</div>
+</div>
+<script>
+var S=["赤い竜","白い風","青い夜","黄色い種","赤い蛇","白い世界の橋渡し","青い手","黄色い星","赤い月","白い犬","青い猿","黄色い人間","赤い空歩く人","白い魔法使い","青い鷲","黄色い戦士","赤い地球","白い鏡","青い嵐","黄色い太陽"];
+document.getElementById('y').addEventListener('input',function(){if(this.value.length>4)this.value=this.value.slice(0,4);});
+function diagnose(){
+var y=parseInt(document.getElementById('y').value);
+var m=parseInt(document.getElementById('m').value);
+var d=parseInt(document.getElementById('d').value);
+if(!y||!m||!d){alert('年・月・日をすべて入力してください');return;}
+if(String(y).length!==4){alert('西暦は4桁で入力してください');return;}
+var b=new Date(1994,6,26),t=new Date(y,m-1,d);
+var diff=Math.round((t-b)/86400000);
+var kin=((diff%260)+260)%260||260;
+document.getElementById('seal-name').textContent='【'+S[(kin-1)%20]+'】';
+var r=document.getElementById('result');
+r.style.display='block';
+}
+</script>
+</body>
+</html>
